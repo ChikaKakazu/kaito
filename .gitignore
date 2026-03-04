@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+.venv/
+
+# Build output
+dist/
+target/
+src-tauri/target/
+
+# Tauri
+src-tauri/gen/
+
+# IDE
+.vscode/
+.idea/
+
+# Ensemble runtime directories
+queue/
+status/
+logs/
+
+# Ensemble internal
+.ensemble/panes.env
+.ensemble/status/
+.ensemble/logs/
+.ensemble/inbox_watcher.pid
+
+# Secrets
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+credentials.json
+credentials.yaml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Lock files (Python)
+uv.lock
+
+# Claude Code
+.claude/projects/
