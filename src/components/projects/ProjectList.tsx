@@ -4,8 +4,10 @@ import { ProjectCard } from "./ProjectCard";
 
 export function ProjectList({
   onSelect,
+  onJiraSettings,
 }: {
   onSelect: (id: number) => void;
+  onJiraSettings?: () => void;
 }) {
   const { projects, loading, addProject, removeProject } = useProjects();
   const [name, setName] = useState("");
@@ -32,6 +34,14 @@ export function ProjectList({
           >
             + New Project
           </button>
+          {onJiraSettings && (
+            <button
+              onClick={onJiraSettings}
+              className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm font-medium transition-colors ml-auto"
+            >
+              Jira Settings
+            </button>
+          )}
         </div>
 
         {showForm && (

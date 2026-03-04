@@ -90,3 +90,38 @@ export interface CreateChecklistItem {
   task_id: number;
   title: string;
 }
+
+// Jira
+export interface JiraSpace {
+  id: number;
+  name: string;
+  base_url: string;
+  email: string;
+  access_token: string;
+  project_key: string;
+  last_fetched_at: string | null;
+}
+
+export interface CreateJiraSpace {
+  name: string;
+  base_url: string;
+  email: string;
+  access_token: string;
+  project_key: string;
+}
+
+export interface JiraIssue {
+  key: string;
+  fields: JiraFields;
+}
+
+export interface JiraFields {
+  summary: string;
+  description: unknown | null;
+  status: { name: string; statusCategory?: { key: string } } | null;
+  priority: { name: string } | null;
+  issuetype: { name: string } | null;
+  assignee: { displayName: string } | null;
+  created: string | null;
+  updated: string | null;
+}

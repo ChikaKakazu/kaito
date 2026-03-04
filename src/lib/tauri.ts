@@ -11,6 +11,9 @@ import type {
   CreateColumn,
   CreateTag,
   CreateChecklistItem,
+  JiraSpace,
+  CreateJiraSpace,
+  JiraIssue,
 } from "./types";
 
 // Projects
@@ -63,3 +66,20 @@ export const toggleChecklistItem = (id: number) =>
   invoke<ChecklistItem>("toggle_checklist_item", { id });
 export const deleteChecklistItem = (id: number) =>
   invoke<void>("delete_checklist_item", { id });
+
+// Jira Spaces
+export const listJiraSpaces = () =>
+  invoke<JiraSpace[]>("list_jira_spaces");
+export const createJiraSpace = (input: CreateJiraSpace) =>
+  invoke<JiraSpace>("create_jira_space", { input });
+export const deleteJiraSpace = (id: number) =>
+  invoke<void>("delete_jira_space", { id });
+
+// Jira Issues
+export const fetchJiraIssues = (spaceId: number) =>
+  invoke<JiraIssue[]>("fetch_jira_issues", { spaceId });
+export const createJiraIssue = (
+  spaceId: number,
+  summary: string,
+  description?: string,
+) => invoke<JiraIssue>("create_jira_issue", { spaceId, summary, description });
