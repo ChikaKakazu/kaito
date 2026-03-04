@@ -20,13 +20,41 @@ Kanban + AI + Task Organizer = kaito
 
 ## Getting Started
 
-### 前提条件
+### 1. Ollamaのインストール
 
-- [Rust](https://www.rust-lang.org/tools/install)
-- [Node.js](https://nodejs.org/)
-- [Ollama](https://ollama.com/)（ローカルLLM）
+AIチャット機能を利用するために [Ollama](https://ollama.com/) が必要です。
 
-### インストール
+**Linux:**
+
+```shell
+curl -fsSL https://ollama.com/install.sh | sh
+```
+
+**Windows (PowerShell):**
+
+```powershell
+winget install Ollama.Ollama
+```
+
+インストール後、モデルをダウンロードします:
+
+```shell
+ollama pull qwen2.5:7b
+```
+
+> Ollamaはインストール時にバックグラウンドサービスとして自動起動されます。手動起動が必要な場合は `ollama serve` を実行してください。
+
+### 2. Kaitoのインストール
+
+[Releases](https://github.com/ChikaKakazu/kaito/releases) からお使いのOS向けのパッケージをダウンロードしてインストールしてください。RustやNode.jsは不要です。
+
+- `.deb` - Debian/Ubuntu
+- `.rpm` - Fedora/RHEL
+- `.AppImage` - 汎用Linux
+
+### 開発環境（ソースからビルドする場合）
+
+[Rust](https://www.rust-lang.org/tools/install) と [Node.js](https://nodejs.org/) が追加で必要です。
 
 ```shell
 git clone https://github.com/ChikaKakazu/kaito.git
